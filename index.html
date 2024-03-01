@@ -5,7 +5,7 @@
 <!-- ********************** Begin Pega content ********************** -->
 <script>
   function onLoadFunc(sID) {
-    var pegatest = pega.web.api.doAction("PegaGadget", "getGadgetData", "[gadget/PegaGadget/.Email", {callback:callBackForPegaIDCookie});
+    var pegatest = pega.web.api.doAction("PegaGadget", "getGadgetData", "[gadget/PegaGadget/.Email]", {callback:callBackForPegaIDCookie});
   }
 
   function callBackForPegaIDCookie(rtnValue) {
