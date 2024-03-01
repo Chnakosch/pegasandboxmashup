@@ -4,9 +4,10 @@
 
 <!-- ********************** Begin Pega content ********************** -->
 <script>
+  var PegaID;
+  
   function dataFromPage(sID) {
     if (sID == "parameters") {
-      var PegaID;
       let name = "PegaID=";
       let ca = document.cookie.split(';');
       for(let i = 0; i < ca.length; i++) {
