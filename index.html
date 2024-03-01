@@ -3,6 +3,16 @@
 <body>
 
 <!-- ********************** Begin Pega content ********************** -->
+<script>
+  function onLoadFunc(sID) {
+    pega.web.api.doAction("PegaGadget", "getGadgetData", "[gadget/PegaGadget/.PegaIDCookie", {callback:callBackForPegaIDCookie});
+  }
+
+  function callBackForPegaIDCookie(rtnValue) {
+    document.cookie = "PegaID=" + rtnValue;
+  }
+</script>
+  
 <script src ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous?pyActivity=pzIncludeMashupScripts'></script>
 <div data-pega-gadgetname ='PegaGadget' 
 data-pega-action ='createNewWork' 
@@ -15,7 +25,8 @@ data-pega-threadname ='LeadCapturePOC'
 data-pega-channelID ='MASHUPc076015c9a914765906601df31c46b1d' 
 data-pega-resizetype ='stretch' 
 data-pega-url ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous' 
-data-pega-action-param-parameters ='{"pzSkinName":"HaufeMarketing","pyMashupSkeletonName":"pyDefaultMashupSkeleton"}' ></div>
+data-pega-action-param-parameters ='{"pzSkinName":"HaufeMarketing","pyMashupSkeletonName":"pyDefaultMashupSkeleton"}'
+data-pega-event-onload = 'onLoadFunc' ></div>
 
 <!-- ********************** End Pega content ********************** -->
   
