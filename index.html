@@ -6,7 +6,7 @@
 <script>
   function dataFromPage(sID) {
     if (sID == "parameters") {
-      let PegaID;
+      var PegaID;
       let name = "PegaID=";
       let ca = document.cookie.split(';');
       for(let i = 0; i < ca.length; i++) {
@@ -27,7 +27,7 @@
   }
 
   function callBackForPegaIDCookie(rtnValue) {
-    document.cookie = "PegaID=" + rtnValue;
+    if (PegaID === undefined) document.cookie = "PegaID=" + rtnValue;
   }
 </script>
   
