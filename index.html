@@ -4,6 +4,24 @@
 
 <!-- ********************** Begin Pega content ********************** -->
 <script>
+  function dataFromPage(sID) {
+    if (sID == "parameters") {
+      let PegaID;
+      let name = "PegaID=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            PegaID = c.substring(name.length, c.length);
+        }
+      }
+      return PegaID;
+    }
+  }
+  
   function onLoadFunc(sID) {
     var pegatest = pega.web.api.doAction("PegaGadget", "getGadgetData", "pyWorkPage.PegaIDCookie", {callback:callBackForPegaIDCookie});
   }
@@ -25,7 +43,8 @@ data-pega-threadname ='LeadCapturePOC'
 data-pega-channelID ='MASHUPc076015c9a914765906601df31c46b1d' 
 data-pega-resizetype ='stretch' 
 data-pega-url ='https://chrhfv-hamark-dt1.pegacloud.net/prweb/PRAuth/TestAnonymous' 
-data-pega-action-param-parameters ='{"pzSkinName":"HaufeMarketing","pyMashupSkeletonName":"pyDefaultMashupSkeleton"}'
+data-pega-action-param-parameters ='{"pzSkinName":"HaufeMarketing","pyMashupSkeletonName":"pyDefaultMashupSkeleton", "PegaIDCookie":"[page/function/parameters]"}'
+data-pega-event-onpagedata = 'dataFromPage'
 data-pega-event-onload = 'onLoadFunc' ></div>
 
 <!-- ********************** End Pega content ********************** -->
