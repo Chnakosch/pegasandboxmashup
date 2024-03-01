@@ -684,7 +684,11 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
       }
     
       function callBackForPegaIDCookie(rtnValue) {
-        if (PegaID === undefined) document.cookie = "PegaID=" + rtnValue;
+        if (PegaID === undefined) {
+		const d = new Date();
+		d.setTime(d.getTime() + (365*24*60*60*1000));
+		document.cookie = "PegaID=" + rtnValue + ";expires=" + d.toUTCString();
+	}
       }
     </script>
       
