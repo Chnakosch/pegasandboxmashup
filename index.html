@@ -687,7 +687,7 @@ div[id^="pgl_container_"]{padding-top:0;margin-top:-5px}
         if (PegaID === undefined) {
 		const d = new Date();
 		d.setTime(d.getTime() + (365*24*60*60*1000));
-		document.cookie = "PegaID=" + rtnValue + ";expires=" + d.toUTCString();
+		document.cookie = "PegaID=" + rtnValue + ";expires=" + d.toUTCString() + ";path=/";
 	}
       }
     </script>
